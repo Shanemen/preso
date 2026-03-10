@@ -9,8 +9,26 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        dark: "#1A1A2E",
+        gray: "#6B7094",
+        indigo: "#3B3BF9",
+        pink: "#FF5CA8",
+        green: "#2ED573",
+      },
+      fontFamily: {
+        syne: ["var(--font-syne)", "sans-serif"],
+        mono: ["var(--font-space-mono)", "monospace"],
+        sans: [
+          "system-ui",
+          "-apple-system",
+          "BlinkMacSystemFont",
+          "Segoe UI",
+          "Roboto",
+          "sans-serif",
+        ],
+      },
+      maxWidth: {
+        content: "1100px",
       },
     },
   },
