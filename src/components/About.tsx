@@ -99,12 +99,9 @@ export default function About() {
         className="mb-10 space-y-4"
       >
         {funFacts.map((fact, i) => (
-          <div key={i} className="flex items-start gap-3">
-            <span className="mt-[3px] shrink-0" aria-hidden="true">{fact.icon}</span>
-            <p className="text-[15px] text-dark leading-[1.7]">
-              {fact.text}
-            </p>
-          </div>
+          <p key={i} className="font-mono text-[13px] text-dark leading-[2.2]">
+            {fact.text}
+          </p>
         ))}
       </motion.div>
 
