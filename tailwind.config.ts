@@ -30,6 +30,11 @@ const config: Config = {
       maxWidth: {
         content: "1100px",
       },
+      zIndex: {
+        base: "0",
+        content: "10",
+        nav: "50",
+      },
     },
   },
   plugins: [],

@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import SectionWrapper from "./SectionWrapper";
+import SectionHeader from "./SectionHeader";
 
 const projects = [
   { name: "Asurion", tag: "AI Transformation Lead", year: "2023–2025" },
@@ -13,22 +14,18 @@ const projects = [
 export default function Work() {
   return (
     <SectionWrapper id="work">
-      <p className="font-mono text-[12px] uppercase tracking-[3px] text-indigo mb-4">
-        Selected Work
-      </p>
-      <h2 className="font-syne font-bold text-[36px] text-dark mb-12">
-        Projects I&apos;m proud of
-      </h2>
+      <SectionHeader label="Work" title="Projects I'm proud of" />
 
       <div className="border-t border-[#E8E8F0]">
         {projects.map((project, i) => (
-          <motion.div
+          <motion.a
             key={project.name}
+            href="#"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: i * 0.1 }}
-            className="group flex items-center justify-between py-7 border-b border-[#E8E8F0] cursor-pointer"
+            className="group flex items-center justify-between py-7 border-b border-[#E8E8F0] no-underline"
           >
             <h3 className="font-syne font-semibold text-[22px] text-dark group-hover:text-indigo transition-colors duration-300">
               {project.name}
@@ -41,11 +38,11 @@ export default function Work() {
               <span className="font-mono text-[11px] text-gray">
                 {project.year}
               </span>
-              <span className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 text-indigo">
+              <span className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 text-indigo" aria-hidden="true">
                 →
               </span>
             </div>
-          </motion.div>
+          </motion.a>
         ))}
       </div>
     </SectionWrapper>
