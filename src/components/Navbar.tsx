@@ -32,7 +32,7 @@ export default function Navbar() {
     <nav
       className={`fixed top-0 left-0 right-0 z-nav transition-all duration-300 ${
         scrolled
-          ? "bg-white border-b border-gray-200"
+          ? "bg-white border-b border-border"
           : "bg-transparent border-b border-transparent"
       }`}
     >
@@ -95,7 +95,7 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className={`md:hidden px-6 pb-6 ${scrolled ? "bg-white" : "bg-[#0a0a2e]"}`}>
+        <div className={`md:hidden px-6 pb-6 ${scrolled ? "bg-white" : "bg-dark"}`}>
           {navLinks.map((link) => (
             <a
               key={link.href}

@@ -14,6 +14,7 @@ const config: Config = {
         indigo: "#3B3BF9",
         pink: "#FF5CA8",
         green: "#2ED573",
+        border: "#E8E8F0",
       },
       fontFamily: {
         syne: ["var(--font-syne)", "sans-serif"],

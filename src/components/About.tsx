@@ -42,7 +42,7 @@ function IconChevron() {
       transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
     >
       <path d="M3 14L9 4L11 8L5 18L3 14Z" fill="#2ED573" />
-      <path d="M9 4L15 14L13 18L7 8L9 4Z" fill="#27AE60" />
+      <path d="M9 4L15 14L13 18L7 8L9 4Z" fill="#24B562" />
     </motion.svg>
   );
 }

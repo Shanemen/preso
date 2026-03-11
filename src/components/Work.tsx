@@ -16,7 +16,7 @@ export default function Work() {
     <SectionWrapper id="work">
       <SectionHeader label="Work" title="Projects I'm proud of" />
 
-      <div className="border-t border-[#E8E8F0]">
+      <div className="border-t border-border">
         {projects.map((project, i) => (
           <motion.a
             key={project.name}
@@ -25,7 +25,7 @@ export default function Work() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: i * 0.1 }}
-            className="group flex items-center justify-between py-7 border-b border-[#E8E8F0] no-underline"
+            className="group flex items-center justify-between py-7 border-b border-border no-underline"
           >
             <h3 className="font-syne font-semibold text-[22px] text-dark group-hover:text-indigo transition-colors duration-300">
               {project.name}
