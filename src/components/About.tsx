@@ -99,14 +99,14 @@ export default function About() {
         className="mb-10 space-y-4"
       >
         {funFacts.map((fact, i) => (
-          <p key={i} className="font-mono text-[13px] text-dark leading-[2.2]">
+          <p key={i} className="font-mono text-[13px] text-gray leading-[2.2]">
             {fact.text}
           </p>
         ))}
       </motion.div>
 
       {/* Waterfall photo grid — 3 cols, varied heights */}
-      <div className="columns-2 md:columns-4 gap-2.5 [column-fill:balance]">
+      <div className="columns-2 md:columns-4 gap-2 [column-fill:balance]">
         {photos.map((photo, i) => (
           <motion.div
             key={photo.alt}

@@ -27,7 +27,7 @@ export default function Work() {
             transition={{ duration: 0.5, delay: i * 0.1 }}
             className="group flex items-center justify-between py-7 border-b border-border no-underline"
           >
-            <h3 className="font-syne font-semibold text-[22px] text-dark group-hover:text-indigo transition-colors duration-300">
+            <h3 className="font-jost font-semibold text-[22px] text-dark group-hover:text-indigo transition-colors duration-300">
               {project.name}
             </h3>
 

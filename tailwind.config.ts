@@ -13,11 +13,10 @@ const config: Config = {
         gray: "#6B7094",
         indigo: "#3B3BF9",
         pink: "#FF5CA8",
-        green: "#2ED573",
         border: "#E8E8F0",
       },
       fontFamily: {
-        syne: ["var(--font-syne)", "sans-serif"],
+        jost: ["var(--font-jost)", "sans-serif"],
         mono: ["var(--font-space-mono)", "monospace"],
         sans: [
           "system-ui",

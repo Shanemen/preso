@@ -9,7 +9,7 @@ export default function Contact() {
     <SectionWrapper id="contact">
       <div className="text-center">
         <SectionHeader label="05 — Contact" title="Let's Connect" />
-        <p className="text-gray max-w-md mx-auto leading-relaxed mb-12 text-pretty">
+        <p className="font-mono text-[13px] text-gray max-w-md mx-auto leading-relaxed mb-12 text-pretty">
           Have a project in mind or want to collaborate? I&apos;d love to hear
           from you.
         </p>
@@ -36,7 +36,7 @@ export default function Contact() {
               href={platform.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="font-mono text-[11px] uppercase tracking-[2px] text-gray hover:text-indigo transition-colors duration-300"
+              className="font-mono text-[11px] uppercase tracking-[3px] text-gray hover:text-indigo transition-colors duration-300"
             >
               {platform.label}
             </a>
@@ -44,11 +44,11 @@ export default function Contact() {
         </div>
       </div>
 
-      <div className="mt-24 pt-8 border-t border-[#6B7094]/10 flex flex-col md:flex-row items-center justify-between gap-4">
-        <p className="font-mono text-[10px] uppercase tracking-[2px] text-gray/50">
+      <div className="mt-24 pt-8 border-t border-border flex flex-col md:flex-row items-center justify-between gap-4">
+        <p className="font-mono text-[11px] uppercase tracking-[3px] text-gray/50">
           &copy; 2026 Sicong. All rights reserved.
         </p>
-        <p className="font-mono text-[10px] uppercase tracking-[2px] text-gray/50">
+        <p className="font-mono text-[11px] uppercase tracking-[3px] text-gray/50">
           Built with Next.js + Tailwind CSS
         </p>
       </div>

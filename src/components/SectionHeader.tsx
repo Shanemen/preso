@@ -9,7 +9,7 @@ export default function SectionHeader({ label, title }: SectionHeaderProps) {
       <p className="font-mono text-[12px] uppercase tracking-[3px] text-indigo mb-4">
         {label}
       </p>
-      <h2 className="font-syne font-bold text-[36px] text-dark text-balance">
+      <h2 className="font-jost font-bold text-[36px] text-dark text-balance">
         {title}
       </h2>
     </div>

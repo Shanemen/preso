@@ -36,10 +36,10 @@ export default function Navbar() {
           : "bg-transparent border-b border-transparent"
       }`}
     >
-      <div className="max-w-content mx-auto flex items-center justify-between px-6 py-5">
+      <div className="max-w-content mx-auto flex items-center justify-between px-6 py-4">
         <a
           href="#hero"
-          className={`font-syne font-bold text-[16px] tracking-wide transition-colors duration-300 ${
+          className={`font-jost font-bold text-[16px] tracking-wide transition-colors duration-300 ${
             scrolled ? "text-dark" : "text-white"
           }`}
         >

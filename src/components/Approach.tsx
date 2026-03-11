@@ -5,17 +5,17 @@ import { motion, useScroll, useTransform } from "framer-motion";
 
 const layers = [
   {
-    bg: "rgba(180, 180, 255, 0.3)",
+    bg: "rgba(59, 59, 249, 0.10)",
     label: "01",
     text: "Designing AI-empowered products",
   },
   {
-    bg: "rgba(255, 92, 168, 0.25)",
+    bg: "rgba(255, 92, 168, 0.15)",
     label: "02",
     text: "Leading strategy at the org level",
   },
   {
-    bg: "rgba(26, 26, 143, 0.35)",
+    bg: "rgba(59, 59, 249, 0.28)",
     label: "03",
     text: "Independent builder",
   },
@@ -86,7 +86,7 @@ export default function Approach() {
             <p className="font-mono text-[12px] uppercase tracking-[3px] text-indigo mb-4">
               01 — Approach
             </p>
-            <h2 className="font-syne font-bold text-[36px] text-dark text-balance">
+            <h2 className="font-jost font-bold text-[36px] text-dark text-balance">
               Three layers of AI experience
             </h2>
           </div>
@@ -124,7 +124,7 @@ export default function Approach() {
             </div>
 
             {/* Right — text items with connecting lines */}
-            <div className="w-full md:w-[62%] flex flex-col" style={{ gap: 52 }}>
+            <div className="w-full md:w-[62%] flex flex-col" style={{ gap: 48 }}>
               {layers.map((layer, i) => (
                 <div key={layer.label} className="relative">
                   <motion.div
@@ -139,7 +139,7 @@ export default function Approach() {
                     className="flex items-baseline gap-4 pt-4"
                   >
                     <span className="font-mono text-[11px] text-gray">{layer.label}</span>
-                    <span className="font-mono text-[13px] text-dark">{layer.text}</span>
+                    <span className="font-mono text-[13px] text-gray">{layer.text}</span>
                   </motion.div>
                 </div>
               ))}

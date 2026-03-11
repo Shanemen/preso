@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { Syne, Space_Mono } from "next/font/google";
+import { Jost, Space_Mono } from "next/font/google";
 import "./globals.css";
 
-const syne = Syne({
+const jost = Jost({
   subsets: ["latin"],
-  variable: "--font-syne",
+  variable: "--font-jost",
   weight: ["400", "500", "600", "700", "800"],
   display: "swap",
 });
@@ -28,7 +28,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`${syne.variable} ${spaceMono.variable} antialiased`}>
+      <body className={`${jost.variable} ${spaceMono.variable} antialiased`}>
         {children}
       </body>
     </html>

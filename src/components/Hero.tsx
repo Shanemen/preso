@@ -23,7 +23,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 0.85 }}
           transition={{ duration: 0.8, delay: 1.5 }}
-          className="font-syne font-normal text-[20px] text-white tracking-[-0.3px] mb-3"
+          className="font-jost font-bold text-[20px] text-white tracking-[-0.3px] mb-3"
         >
           Designing systems that make complexity feel simple
         </motion.p>

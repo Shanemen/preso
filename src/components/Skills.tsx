@@ -114,10 +114,9 @@ function RadarChart({
     >
       <div style={{ textAlign: "center", marginBottom: 4 }}>
         <div
-          className="font-syne"
+          className="font-jost font-bold"
           style={{
             fontSize: 17,
-            fontWeight: 500,
             color: COLORS.title,
             letterSpacing: "-0.01em",
             lineHeight: 1.2,
@@ -126,11 +125,12 @@ function RadarChart({
           {title}
         </div>
         <div
+          className="font-mono"
           style={{
             fontSize: 11,
             color: COLORS.subtitle,
             marginTop: 3,
-            letterSpacing: "0.04em",
+            letterSpacing: "0.18em",
             textTransform: "uppercase",
           }}
         >
@@ -292,23 +292,21 @@ export default function Skills() {
         }}
       >
         <p
-          className="font-syne"
+          className="font-mono"
           style={{
-            fontSize: 15,
-            fontWeight: 400,
+            fontSize: 13,
             fontStyle: "italic",
             color: "#6B7094",
             margin: 0,
             lineHeight: 1.7,
-            letterSpacing: "0.01em",
           }}
         >
           The designer&apos;s value shifts from{" "}
-          <span style={{ color: "#FF5CA8", fontStyle: "normal", fontWeight: 500 }}>
+          <span style={{ color: "#FF5CA8", fontStyle: "normal", fontWeight: 700 }}>
             executing pixels
           </span>{" "}
           to{" "}
-          <span style={{ color: "#3B3BF9", fontStyle: "normal", fontWeight: 500 }}>
+          <span style={{ color: "#3B3BF9", fontStyle: "normal", fontWeight: 700 }}>
             orchestrating systems
           </span>{" "}
           — from how it looks to why it exists.
