@@ -88,7 +88,7 @@ const photos = [
 export default function About() {
   return (
     <SectionWrapper id="about">
-      <SectionHeader label="About" title="Who I am outside of work" />
+      <SectionHeader label="03 — About" title="Who I am outside of work" />
 
       {/* Fun facts */}
       <motion.div

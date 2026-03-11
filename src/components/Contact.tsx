@@ -8,7 +8,7 @@ export default function Contact() {
   return (
     <SectionWrapper id="contact">
       <div className="text-center">
-        <SectionHeader label="Contact" title="Let's Connect" />
+        <SectionHeader label="05 — Contact" title="Let's Connect" />
         <p className="text-gray max-w-md mx-auto leading-relaxed mb-12 text-pretty">
           Have a project in mind or want to collaborate? I&apos;d love to hear
           from you.

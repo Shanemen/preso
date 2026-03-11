@@ -14,7 +14,7 @@ const projects = [
 export default function Work() {
   return (
     <SectionWrapper id="work">
-      <SectionHeader label="Work" title="Projects I'm proud of" />
+      <SectionHeader label="02 — Work" title="Projects I'm proud of" />
 
       <div className="border-t border-border">
         {projects.map((project, i) => (

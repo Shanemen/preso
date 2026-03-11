@@ -200,7 +200,7 @@ export default function Skills() {
 
   return (
     <SectionWrapper id="skills">
-      <SectionHeader label="Expertise" title="What I bring to the table" />
+      <SectionHeader label="04 — Expertise" title="What I bring to the table" />
 
       {/* Charts */}
       <motion.div

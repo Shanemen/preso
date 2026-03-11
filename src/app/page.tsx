@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import Approach from "@/components/Approach";
 import Work from "@/components/Work";
 import About from "@/components/About";
 import Skills from "@/components/Skills";
@@ -10,6 +11,7 @@ export default function Home() {
     <main>
       <Navbar />
       <Hero />
+      <Approach />
       <Work />
       <About />
       <Skills />
