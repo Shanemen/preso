@@ -27,8 +27,7 @@ const H = 160;
 
 // Rounded diamond SVG path (corner radius ~14px)
 // Points: top(140,0), right(280,80), bottom(140,160), left(0,80)
-const R = 14;
-// Pre-calculated offsets along edges for corner rounding
+// Pre-calculated offsets along edges for corner rounding (radius ~14px)
 // Edge unit vector magnitude: sqrt(140²+80²) ≈ 161.2
 // dx = 140/161.2 * R ≈ 12.15, dy = 80/161.2 * R ≈ 6.95
 const dx = 12.15;
