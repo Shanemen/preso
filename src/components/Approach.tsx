@@ -1,7 +1,9 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
+import SectionWrapper from "./SectionWrapper";
+import SectionHeader from "./SectionHeader";
+import Text from "./Text";
 
 const layers = [
   {
@@ -27,7 +29,6 @@ const H = 160;
 
 // Rounded diamond SVG path (corner radius ~14px)
 // Points: top(140,0), right(280,80), bottom(140,160), left(0,80)
-// Pre-calculated offsets along edges for corner rounding (radius ~14px)
 // Edge unit vector magnitude: sqrt(140²+80²) ≈ 161.2
 // dx = 140/161.2 * R ≈ 12.15, dy = 80/161.2 * R ≈ 6.95
 const dx = 12.15;
@@ -47,106 +48,74 @@ const DIAMOND_PATH = [
 ].join(" ");
 
 // Layer stacking: pure vertical
-const LAYER_FINAL_Y = [-184, -92, 0];
+const LAYER_FINAL_Y = [-140, -70, 0];
 
 export default function Approach() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end end"],
-  });
-
-  // Step 1: Layers expand vertically
-  const layer1Y = useTransform(scrollYProgress, [0, 0.35], [0, LAYER_FINAL_Y[0]]);
-  const layer2Y = useTransform(scrollYProgress, [0, 0.3], [0, LAYER_FINAL_Y[1]]);
-  const layerYOffsets = [layer1Y, layer2Y, 0];
-
-  // Step 2: Lines draw in
-  const line1Scale = useTransform(scrollYProgress, [0.35, 0.5], [0, 1]);
-  const line2Scale = useTransform(scrollYProgress, [0.38, 0.53], [0, 1]);
-  const line3Scale = useTransform(scrollYProgress, [0.41, 0.56], [0, 1]);
-  const lineScales = [line1Scale, line2Scale, line3Scale];
-
-  // Step 3: Text fades in
-  const text1Opacity = useTransform(scrollYProgress, [0.5, 0.6], [0, 1]);
-  const text1X = useTransform(scrollYProgress, [0.5, 0.6], [-12, 0]);
-  const text2Opacity = useTransform(scrollYProgress, [0.55, 0.65], [0, 1]);
-  const text2X = useTransform(scrollYProgress, [0.55, 0.65], [-12, 0]);
-  const text3Opacity = useTransform(scrollYProgress, [0.6, 0.7], [0, 1]);
-  const text3X = useTransform(scrollYProgress, [0.6, 0.7], [-12, 0]);
-  const textOpacities = [text1Opacity, text2Opacity, text3Opacity];
-  const textXOffsets = [text1X, text2X, text3X];
-
   return (
-    <section ref={containerRef} className="relative bg-white" style={{ height: "150vh" }}>
-      <div className="sticky top-0 h-dvh flex items-center">
-        <div className="max-w-content mx-auto px-6 w-full">
-          {/* Header */}
-          <div className="mb-20">
-            <p className="font-mono text-[12px] uppercase tracking-[3px] text-indigo mb-4">
-              01 — Approach
-            </p>
-            <h2 className="font-jost font-bold text-[36px] text-dark text-balance">
-              Three layers of AI experience
-            </h2>
-          </div>
+    <SectionWrapper id="approach">
+      <SectionHeader label="01 — Approach" title="Three layers of AI experience" />
 
-          {/* Two columns — shapes left, text right */}
-          <div className="flex flex-col md:flex-row items-start">
-            {/* Left — stacked glassmorphism diamond layers */}
-            <div className="w-full md:w-[38%] flex items-start justify-start">
-              <div style={{ position: "relative", width: W + 40, height: H + 240 }}>
-                {layers.map((layer, i) => (
-                  <motion.div
-                    key={layer.label}
-                    style={{
-                      position: "absolute",
-                      top: 124,
-                      left: 0,
-                      y: layerYOffsets[i] as number,
-                      filter: "drop-shadow(0 4px 16px rgba(59, 59, 249, 0.06))",
-                    }}
-                  >
-                    <svg
-                      width={W}
-                      height={H}
-                      viewBox={`0 0 ${W} ${H}`}
-                      fill="none"
-                    >
-                      <path
-                        d={DIAMOND_PATH}
-                        fill={layer.bg}
-                      />
-                    </svg>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-
-            {/* Right — text items with connecting lines */}
-            <div className="w-full md:w-[62%] flex flex-col" style={{ gap: 48 }}>
-              {layers.map((layer, i) => (
-                <div key={layer.label} className="relative">
-                  <motion.div
-                    style={{ scaleX: lineScales[i], transformOrigin: "left" }}
-                    className="absolute top-0 left-0 right-0 h-px bg-border"
+      {/* Two columns — shapes left, text right */}
+      <div className="flex flex-col md:flex-row items-start">
+        {/* Left — stacked glassmorphism diamond layers */}
+        <div className="w-full md:w-[38%] flex items-start justify-start">
+          <div style={{ position: "relative", width: W + 40, height: 260 }}>
+            {layers.map((layer, i) => (
+              <motion.div
+                key={layer.label}
+                initial={{ y: 0 }}
+                whileInView={{ y: LAYER_FINAL_Y[i] }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.8, delay: i * 0.1, ease: "easeOut" }}
+                style={{
+                  position: "absolute",
+                  top: 100,
+                  left: 0,
+                  filter: "drop-shadow(0 4px 16px rgba(59, 59, 249, 0.06))",
+                }}
+              >
+                <svg
+                  width={W}
+                  height={H}
+                  viewBox={`0 0 ${W} ${H}`}
+                  fill="none"
+                >
+                  <path
+                    d={DIAMOND_PATH}
+                    fill={layer.bg}
                   />
-                  <motion.div
-                    style={{
-                      opacity: textOpacities[i],
-                      x: textXOffsets[i],
-                    }}
-                    className="flex items-baseline gap-4 pt-4"
-                  >
-                    <span className="font-mono text-[11px] text-gray">{layer.label}</span>
-                    <span className="font-mono text-[13px] text-gray">{layer.text}</span>
-                  </motion.div>
-                </div>
-              ))}
-            </div>
+                </svg>
+              </motion.div>
+            ))}
           </div>
         </div>
+
+        {/* Right — text items with connecting lines */}
+        <div className="w-full md:w-[62%] flex flex-col justify-center" style={{ gap: 48 }}>
+          {layers.map((layer, i) => (
+            <div key={layer.label} className="relative">
+              <motion.div
+                initial={{ scaleX: 0 }}
+                whileInView={{ scaleX: 1 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.5, delay: 0.3 + i * 0.12 }}
+                style={{ transformOrigin: "left" }}
+                className="absolute top-0 left-0 right-0 h-px bg-border"
+              />
+              <motion.div
+                initial={{ opacity: 0, x: -12 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.5, delay: 0.5 + i * 0.12 }}
+                className="flex items-baseline gap-4 pt-4"
+              >
+                <Text level="caption" as="span">{layer.label}</Text>
+                <Text level="body" as="span">{layer.text}</Text>
+              </motion.div>
+            </div>
+          ))}
+        </div>
       </div>
-    </section>
+    </SectionWrapper>
   );
 }

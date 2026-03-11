@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import SectionWrapper from "./SectionWrapper";
 import SectionHeader from "./SectionHeader";
+import Text from "./Text";
 
 // Pyramid / triangle — New York — gentle float
 function IconPyramid() {
@@ -99,9 +100,9 @@ export default function About() {
         className="mb-10 space-y-4"
       >
         {funFacts.map((fact, i) => (
-          <p key={i} className="font-mono text-[13px] text-gray leading-[2.2]">
+          <Text key={i} level="body" className="leading-[2.2]">
             {fact.text}
-          </p>
+          </Text>
         ))}
       </motion.div>
 

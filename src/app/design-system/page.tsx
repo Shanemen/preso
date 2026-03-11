@@ -3,7 +3,7 @@
 export default function DesignSystemPage() {
   const colors = [
     { name: "dark", hex: "#1A1A2E", classes: "text-dark, bg-dark", bg: "bg-dark", usage: "Headings, body text, primary text color" },
-    { name: "gray", hex: "#6B7094", classes: "text-gray", bg: "bg-gray", usage: "Text secondary — captions, meta info, timestamps" },
+    { name: "gray", hex: "#4A4E6A", classes: "text-gray", bg: "bg-gray", usage: "Body text — descriptions, fun facts, captions, meta info" },
     { name: "indigo", hex: "#3B3BF9", classes: "text-indigo, bg-indigo", bg: "bg-indigo", usage: "Primary accent — section labels, CTA button, links, selection highlight" },
     { name: "pink", hex: "#FF5CA8", classes: "text-pink, bg-pink", bg: "bg-pink", usage: "Secondary accent — radar chart, diamond layer, visual interest" },
     { name: "border", hex: "#E8E8F0", classes: "border-border", bg: "bg-border", usage: "Dividers & borders — section separators, horizontal rules" },
@@ -77,12 +77,13 @@ export default function DesignSystemPage() {
   ];
 
   const animations = [
-    { name: "Fade In Up", duration: "0.5s", delay: "—", easing: "easeInOut" },
-    { name: "Stagger Item", duration: "0.5s", delay: "i * 0.1s", easing: "easeInOut" },
-    { name: "Hero Enter", duration: "0.8s", delay: "1.5s", easing: "easeInOut" },
-    { name: "Scroll Indicator", duration: "0.8s", delay: "2.3s", easing: "easeInOut" },
-    { name: "Bounce Loop", duration: "2s", delay: "—", easing: "easeInOut, repeat" },
-    { name: "Hover Scale", duration: "400ms", delay: "—", easing: "ease-out" },
+    { name: "Section Fade In Up", duration: "0.7s", delay: "—", easing: "easeInOut", trigger: "whileInView, once" },
+    { name: "Diamond Expand", duration: "0.8s", delay: "i * 0.1s", easing: "easeOut", trigger: "whileInView, once" },
+    { name: "Line Draw In", duration: "0.5s", delay: "0.3 + i * 0.12s", easing: "easeInOut", trigger: "whileInView, once" },
+    { name: "Text Fade In", duration: "0.5s", delay: "0.5 + i * 0.12s", easing: "easeInOut", trigger: "whileInView, once" },
+    { name: "Hero Enter", duration: "0.8s", delay: "1.5s", easing: "easeInOut", trigger: "mount" },
+    { name: "Photo Stagger", duration: "0.5s", delay: "i * 0.08s", easing: "easeInOut", trigger: "whileInView, once" },
+    { name: "Hover Scale", duration: "400ms", delay: "—", easing: "ease-out", trigger: "hover" },
   ];
 
   return (
@@ -248,7 +249,81 @@ export default function DesignSystemPage() {
           </div>
         </section>
 
-        {/* 6. Section Header Component */}
+        {/* 6. Component API */}
+        <section>
+          <h2 className="font-jost font-bold text-[24px] text-dark mb-8 mt-16">
+            Component API
+          </h2>
+          <div className="border-t border-border pt-8" />
+          <p className="font-mono text-[13px] text-gray mb-8">
+            All UI must use these components. Never write raw Tailwind classes for text, headings, dividers, or buttons.
+          </p>
+
+          <div className="flex flex-col gap-6">
+            {[
+              {
+                name: "Text",
+                file: "components/Text.tsx",
+                api: 'level: "body" | "caption" | "label"',
+                extra: 'as?: "p" | "span"',
+                example: '<Text level="body">Description text</Text>',
+              },
+              {
+                name: "Heading",
+                file: "components/Heading.tsx",
+                api: 'level: "h1" | "h2" | "sub"',
+                extra: "",
+                example: '<Heading level="sub">Project Title</Heading>',
+              },
+              {
+                name: "Divider",
+                file: "components/Divider.tsx",
+                api: "—",
+                extra: "",
+                example: "<Divider />",
+              },
+              {
+                name: "Button",
+                file: "components/Button.tsx",
+                api: "href: string",
+                extra: "",
+                example: '<Button href="mailto:...">Say Hello</Button>',
+              },
+              {
+                name: "SectionWrapper",
+                file: "components/SectionWrapper.tsx",
+                api: "id: string",
+                extra: "Adds py-[120px], fade-in-up animation",
+                example: '<SectionWrapper id="work">...</SectionWrapper>',
+              },
+              {
+                name: "SectionHeader",
+                file: "components/SectionHeader.tsx",
+                api: "label: string, title: string",
+                extra: "",
+                example: '<SectionHeader label="02 — Work" title="Projects" />',
+              },
+            ].map((comp) => (
+              <div key={comp.name} className="p-4 rounded-lg border border-border">
+                <div className="flex items-baseline gap-3 mb-2">
+                  <span className="font-mono text-[13px] text-dark font-bold">
+                    {"<"}{comp.name}{" />"}
+                  </span>
+                  <span className="font-mono text-[10px] text-gray">{comp.file}</span>
+                </div>
+                <p className="font-mono text-[11px] text-indigo">{comp.api}</p>
+                {comp.extra && (
+                  <p className="font-mono text-[10px] text-gray mt-1">{comp.extra}</p>
+                )}
+                <p className="font-mono text-[10px] text-gray mt-2 bg-dark/5 rounded px-2 py-1 inline-block">
+                  {comp.example}
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* 7. Section Header Component */}
         <section>
           <h2 className="font-jost font-bold text-[24px] text-dark mb-8 mt-16">
             Section Header Component
@@ -280,20 +355,11 @@ export default function DesignSystemPage() {
           <div className="flex flex-col gap-6">
             <div>
               <p className="font-mono text-[11px] text-dark font-bold mb-3">
-                Standard Divider
+                Divider
               </p>
               <div className="border-t border-border" />
               <p className="font-mono text-[10px] text-gray mt-2">
                 border-t border-border (1px #E8E8F0)
-              </p>
-            </div>
-            <div>
-              <p className="font-mono text-[11px] text-dark font-bold mb-3">
-                Full Width Horizontal Rule
-              </p>
-              <hr className="border-border" />
-              <p className="font-mono text-[10px] text-gray mt-2">
-                {'<hr className="border-border" />'}
               </p>
             </div>
           </div>
@@ -329,37 +395,49 @@ export default function DesignSystemPage() {
           <p className="font-mono text-[11px] text-dark font-bold mb-4">
             Glassmorphism Diamond Layers
           </p>
-          <div className="relative h-[200px] w-[200px] mx-auto mb-6">
-            <div
-              className="absolute w-[100px] h-[100px] rounded-xl rotate-45"
-              style={{
-                backgroundColor: "rgba(180, 180, 255, 0.3)",
-                top: "20px",
-                left: "30px",
-                filter: "drop-shadow(0 4px 16px rgba(59, 59, 249, 0.06))",
-              }}
-            />
-            <div
-              className="absolute w-[100px] h-[100px] rounded-xl rotate-45"
-              style={{
-                backgroundColor: "rgba(255, 92, 168, 0.25)",
-                top: "40px",
-                left: "50px",
-                filter: "drop-shadow(0 4px 16px rgba(59, 59, 249, 0.06))",
-              }}
-            />
-            <div
-              className="absolute w-[100px] h-[100px] rounded-xl rotate-45"
-              style={{
-                backgroundColor: "rgba(26, 26, 143, 0.35)",
-                top: "60px",
-                left: "70px",
-                filter: "drop-shadow(0 4px 16px rgba(59, 59, 249, 0.06))",
-              }}
-            />
-          </div>
+          {(() => {
+            const w = 160, h = 92;
+            const dx2 = 6.95, dy2 = 3.97;
+            const path = [
+              `M ${w/2 + dx2},${dy2}`,
+              `L ${w - dx2},${h/2 - dy2}`,
+              `Q ${w},${h/2} ${w - dx2},${h/2 + dy2}`,
+              `L ${w/2 + dx2},${h - dy2}`,
+              `Q ${w/2},${h} ${w/2 - dx2},${h - dy2}`,
+              `L ${dx2},${h/2 + dy2}`,
+              `Q 0,${h/2} ${dx2},${h/2 - dy2}`,
+              `L ${w/2 - dx2},${dy2}`,
+              `Q ${w/2},0 ${w/2 + dx2},${dy2}`,
+              "Z",
+            ].join(" ");
+            const fills = [
+              "rgba(59, 59, 249, 0.10)",
+              "rgba(255, 92, 168, 0.15)",
+              "rgba(59, 59, 249, 0.28)",
+            ];
+            const offsets = [-80, -40, 0];
+            return (
+              <div className="relative mx-auto mb-6" style={{ width: w + 20, height: h + 120 }}>
+                {fills.map((fill, i) => (
+                  <div
+                    key={i}
+                    style={{
+                      position: "absolute",
+                      top: 60 + offsets[i],
+                      left: 0,
+                      filter: "drop-shadow(0 4px 16px rgba(59, 59, 249, 0.06))",
+                    }}
+                  >
+                    <svg width={w} height={h} viewBox={`0 0 ${w} ${h}`} fill="none">
+                      <path d={path} fill={fill} />
+                    </svg>
+                  </div>
+                ))}
+              </div>
+            );
+          })()}
           <p className="font-mono text-[10px] text-gray text-center">
-            drop-shadow(0 4px 16px rgba(59, 59, 249, 0.06))
+            Rounded diamond SVG path · drop-shadow(0 4px 16px rgba(59, 59, 249, 0.06))
           </p>
         </section>
 
@@ -382,8 +460,11 @@ export default function DesignSystemPage() {
                   <th className="font-mono text-[11px] text-dark font-bold pb-3 pr-8">
                     Delay
                   </th>
-                  <th className="font-mono text-[11px] text-dark font-bold pb-3">
+                  <th className="font-mono text-[11px] text-dark font-bold pb-3 pr-8">
                     Easing
+                  </th>
+                  <th className="font-mono text-[11px] text-dark font-bold pb-3">
+                    Trigger
                   </th>
                 </tr>
               </thead>
@@ -399,8 +480,11 @@ export default function DesignSystemPage() {
                     <td className="font-mono text-[11px] text-gray py-3 pr-8">
                       {a.delay}
                     </td>
-                    <td className="font-mono text-[11px] text-gray py-3">
+                    <td className="font-mono text-[11px] text-gray py-3 pr-8">
                       {a.easing}
+                    </td>
+                    <td className="font-mono text-[11px] text-indigo py-3">
+                      {a.trigger}
                     </td>
                   </tr>
                 ))}

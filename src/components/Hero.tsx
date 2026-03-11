@@ -10,7 +10,7 @@ export default function Hero() {
     >
       {/* Spline 3D background */}
       <iframe
-        src="https://my.spline.design/3dtextbluecopy-ePCunNXWqctTWXtaKk3dXY2X/"
+        src="https://my.spline.design/3dtextbluecopy-ePCunNXWqctTWXtaKk3dXY2X/?v=2"
         className="absolute inset-0 w-full h-full border-none z-0"
         tabIndex={-1}
         title="3D Background"
