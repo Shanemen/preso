@@ -1052,7 +1052,7 @@
 
       <!-- Step 1: Map the Landscape -->
       <div class="step-card">
-        <div class="step-header" onclick="openStep(this.parentElement)">
+        <div class="step-header">
           <div class="step-header-left">
             <span class="step-number">01</span>
             <span class="step-name">Map the Landscape</span>
@@ -1116,7 +1116,7 @@
 
       <!-- Step 2 -->
       <div class="step-card">
-        <div class="step-header" onclick="openStep(this.parentElement)">
+        <div class="step-header">
           <div class="step-header-left">
             <span class="step-number">02</span>
             <span class="step-name">Build Shared Understanding</span>
@@ -1152,9 +1152,7 @@
               <div class="step-case-label">Example</div>
             </div>
             <div class="step-case-right">
-              <div class="step-deliverables" style="grid-template-columns:1fr;">
-                <div class="step-deliverable" style="height:280px;"><span>Deck from Google Drive</span></div>
-              </div>
+              <img src="photos/standup.png" alt="Build shared understanding" style="width:100%;height:auto;display:block;border-radius:6px;margin-top:24px;">
             </div>
           </div>
 
@@ -1163,7 +1161,7 @@
 
       <!-- Step 3 -->
       <div class="step-card">
-        <div class="step-header" onclick="openStep(this.parentElement)">
+        <div class="step-header">
           <div class="step-header-left">
             <span class="step-number">03</span>
             <span class="step-name">Define the Architecture</span>
@@ -1199,9 +1197,7 @@
               <div class="step-case-label">Example</div>
             </div>
             <div class="step-case-right">
-              <div class="step-deliverables" style="grid-template-columns:1fr;">
-                <div class="step-deliverable" style="height:280px;"><span>North Star Vision</span></div>
-              </div>
+              <img src="photos/Design_IA.png" alt="Information architecture" style="width:100%;height:auto;display:block;border-radius:6px;margin-top:24px;">
             </div>
           </div>
 
@@ -1210,7 +1206,7 @@
 
       <!-- Step 4 -->
       <div class="step-card">
-        <div class="step-header" onclick="openStep(this.parentElement)">
+        <div class="step-header">
           <div class="step-header-left">
             <span class="step-number">04</span>
             <span class="step-name">Validate Early</span>
@@ -1251,16 +1247,8 @@
               <div class="step-case-label">Examples</div>
             </div>
             <div class="step-case-right">
-              <div class="step-deliverables">
-                <div class="step-deliverable" style="height:160px;flex-direction:column;gap:8px;">
-                  <span>Lyft</span>
-                  <span style="font-weight:400;text-transform:none;letter-spacing:0;font-size:13px;color:var(--on-surface-variant);text-align:center;padding:0 16px;">Co-creation lab with 7 BPO staff from 11 countries</span>
-                </div>
-                <div class="step-deliverable" style="height:160px;flex-direction:column;gap:8px;">
-                  <span>HomeVision</span>
-                  <span style="font-weight:400;text-transform:none;letter-spacing:0;font-size:13px;color:var(--on-surface-variant);text-align:center;padding:0 16px;">Feedback panel with appraisers, MMCs, and underwriters</span>
-                </div>
-              </div>
+              <img src="photos/feedback.png" alt="Co-creation lab" style="width:100%;height:auto;display:block;border-radius:6px;margin-top:24px;">
+              <p style="font-family:'Manrope',sans-serif;font-size:13px;color:var(--on-surface-variant);margin-top:8px;">Co-creation lab with 7 BPOs from 11 countries</p>
             </div>
           </div>
 
@@ -1281,7 +1269,7 @@
 
       <!-- 01: Invest in the Foundation -->
       <div class="step-card">
-        <div class="step-header" onclick="openStep(this.parentElement, 'collab-steps')">
+        <div class="step-header">
           <div class="step-header-left">
             <span class="step-number">01</span>
             <span class="step-name">Invest in the Foundation</span>
@@ -1305,7 +1293,7 @@
 
       <!-- 02: Help Me Open Doors -->
       <div class="step-card">
-        <div class="step-header" onclick="openStep(this.parentElement, 'collab-steps')">
+        <div class="step-header">
           <div class="step-header-left">
             <span class="step-number">02</span>
             <span class="step-name">Help Me Open Doors</span>
@@ -1329,7 +1317,7 @@
 
       <!-- 03: Research and Design in Code -->
       <div class="step-card">
-        <div class="step-header" onclick="openStep(this.parentElement, 'collab-steps')">
+        <div class="step-header">
           <div class="step-header-left">
             <span class="step-number">03</span>
             <span class="step-name">Research and Design in Code</span>
@@ -1419,6 +1407,14 @@ function closeStep(e) {
   var card = e.target.closest('.step-card');
   if (card) card.classList.remove('open');
 }
+
+document.querySelectorAll('.step-card').forEach(function(card) {
+  card.addEventListener('click', function() {
+    if (card.classList.contains('open')) return;
+    var container = card.closest('.process-steps');
+    openStep(card, container && container.id ? container.id : null);
+  });
+});
 
 
 function switchPage(pageName) {
