@@ -4,6 +4,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Sicong for Unqork</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍦</text></svg>">
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Manrope:wght@200..800&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
 <style>
@@ -367,17 +368,28 @@
 
   .exp-image {
     background: var(--surface-highest);
-    height: 240px;
+    height: 360px;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
   }
 
+  .exp-image a {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
   .exp-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: left top;
+  }
+
+  .exp-image-center img {
+    object-position: center top;
   }
 
   .exp-image span {
@@ -933,7 +945,7 @@
           <div class="exp-title">AI Transformation Lead /<br/>Principal Designer</div>
           <div class="exp-company">Asurion</div>
         </div>
-        <div class="exp-image"><span>Project Image</span></div>
+        <div class="exp-image"><a href="https://www.asurion.com/" target="_blank" rel="noopener"><img src="photos/Asurion.png" alt="Asurion project"></a></div>
       </div>
       <div class="exp-body">
         <div class="exp-focus">
@@ -958,7 +970,7 @@
           <div class="exp-title">Senior Product Designer</div>
           <div class="exp-company">HomeVision</div>
         </div>
-        <div class="exp-image"><span>Project Image</span></div>
+        <div class="exp-image exp-image-center"><a href="https://homevision.co/" target="_blank" rel="noopener"><img src="photos/HomeVision.png" alt="HomeVision project"></a></div>
       </div>
       <div class="exp-body">
         <div class="exp-focus">
@@ -984,7 +996,7 @@
           <div class="exp-title">Product Designer</div>
           <div class="exp-company">Lyft</div>
         </div>
-        <div class="exp-image"><span>Project Image</span></div>
+        <div class="exp-image"><a href="https://www.lyft.com/" target="_blank" rel="noopener"><img src="photos/Lyft.png" alt="Lyft project"></a></div>
       </div>
       <div class="exp-body">
         <div class="exp-focus">
@@ -1010,7 +1022,7 @@
           <div class="exp-title">Independent Builder</div>
           <div class="exp-company">Self-initiated</div>
         </div>
-        <div class="exp-image"><span>Project Image</span></div>
+        <div class="exp-image exp-image-center"><a href="https://tablet-system.vercel.app/admin/login" target="_blank" rel="noopener"><img src="photos/Tablet.png" alt="Independent project"></a></div>
       </div>
       <div class="exp-body">
         <div class="exp-focus">
@@ -1040,7 +1052,7 @@
 
       <!-- Step 1: Map the Landscape -->
       <div class="step-card">
-        <div class="step-header" onclick="openStep(this.parentElement)">
+        <div class="step-header">
           <div class="step-header-left">
             <span class="step-number">01</span>
             <span class="step-name">Map the Landscape</span>
@@ -1085,9 +1097,7 @@
             </div>
             <div class="step-case-right">
               <div class="step-case-bg">Asurion has nearly 10,000 support agents worldwide. Each meets with a team coach weekly to improve performance — but coaches consistently reported that their tools gave them <strong>too much data and not enough insight.</strong> No one had ever mapped what their actual workflow and their decision-making process looked like. That's where I came in.</div>
-              <div class="step-deliverables" style="grid-template-columns:1fr;">
-                <div class="step-deliverable" style="height:280px;"><span>Case Study Cover</span></div>
-              </div>
+              <img src="photos/Asurion_coaching.png" alt="Asurion coaching case study" style="width:100%;height:auto;display:block;border-radius:6px;margin-top:24px;">
             </div>
           </div>
 
@@ -1098,9 +1108,7 @@
             </div>
             <div class="step-case-right">
               <div class="step-case-bg">800+ rules govern every AI-assisted review in the home appraisal pipeline — but their content, logic, and relationships were scattered across spreadsheets, dashboards, and hard code. <strong>No single source of truth.</strong> Every new client onboarding, every rule change, every quality check required someone to manually trace dependencies across systems. We reached a tipping point and had to redesign a holistic rule management system.</div>
-              <div class="step-deliverables" style="grid-template-columns:1fr;">
-                <div class="step-deliverable" style="height:280px;"><span>Case Study Cover</span></div>
-              </div>
+              <img src="photos/HV_rules.png" alt="HomeVision rules case study" style="width:100%;height:auto;display:block;border-radius:6px;margin-top:24px;">
             </div>
           </div>
         </div>
@@ -1108,7 +1116,7 @@
 
       <!-- Step 2 -->
       <div class="step-card">
-        <div class="step-header" onclick="openStep(this.parentElement)">
+        <div class="step-header">
           <div class="step-header-left">
             <span class="step-number">02</span>
             <span class="step-name">Build Shared Understanding</span>
@@ -1144,9 +1152,7 @@
               <div class="step-case-label">Example</div>
             </div>
             <div class="step-case-right">
-              <div class="step-deliverables" style="grid-template-columns:1fr;">
-                <div class="step-deliverable" style="height:280px;"><span>Deck from Google Drive</span></div>
-              </div>
+              <img src="photos/standup.png" alt="Build shared understanding" style="width:100%;height:auto;display:block;border-radius:6px;margin-top:24px;">
             </div>
           </div>
 
@@ -1155,7 +1161,7 @@
 
       <!-- Step 3 -->
       <div class="step-card">
-        <div class="step-header" onclick="openStep(this.parentElement)">
+        <div class="step-header">
           <div class="step-header-left">
             <span class="step-number">03</span>
             <span class="step-name">Define the Architecture</span>
@@ -1191,9 +1197,7 @@
               <div class="step-case-label">Example</div>
             </div>
             <div class="step-case-right">
-              <div class="step-deliverables" style="grid-template-columns:1fr;">
-                <div class="step-deliverable" style="height:280px;"><span>North Star Vision</span></div>
-              </div>
+              <img src="photos/Design_IA.png" alt="Information architecture" style="width:100%;height:auto;display:block;border-radius:6px;margin-top:24px;">
             </div>
           </div>
 
@@ -1202,7 +1206,7 @@
 
       <!-- Step 4 -->
       <div class="step-card">
-        <div class="step-header" onclick="openStep(this.parentElement)">
+        <div class="step-header">
           <div class="step-header-left">
             <span class="step-number">04</span>
             <span class="step-name">Validate Early</span>
@@ -1243,16 +1247,8 @@
               <div class="step-case-label">Examples</div>
             </div>
             <div class="step-case-right">
-              <div class="step-deliverables">
-                <div class="step-deliverable" style="height:160px;flex-direction:column;gap:8px;">
-                  <span>Lyft</span>
-                  <span style="font-weight:400;text-transform:none;letter-spacing:0;font-size:13px;color:var(--on-surface-variant);text-align:center;padding:0 16px;">Co-creation lab with 7 BPO staff from 11 countries</span>
-                </div>
-                <div class="step-deliverable" style="height:160px;flex-direction:column;gap:8px;">
-                  <span>HomeVision</span>
-                  <span style="font-weight:400;text-transform:none;letter-spacing:0;font-size:13px;color:var(--on-surface-variant);text-align:center;padding:0 16px;">Feedback panel with appraisers, MMCs, and underwriters</span>
-                </div>
-              </div>
+              <img src="photos/feedback.png" alt="Co-creation lab" style="width:100%;height:auto;display:block;border-radius:6px;margin-top:24px;">
+              <p style="font-family:'Manrope',sans-serif;font-size:13px;color:var(--on-surface-variant);margin-top:8px;">Co-creation lab with 7 BPOs from 11 countries</p>
             </div>
           </div>
 
@@ -1273,7 +1269,7 @@
 
       <!-- 01: Invest in the Foundation -->
       <div class="step-card">
-        <div class="step-header" onclick="openStep(this.parentElement, 'collab-steps')">
+        <div class="step-header">
           <div class="step-header-left">
             <span class="step-number">01</span>
             <span class="step-name">Invest in the Foundation</span>
@@ -1297,7 +1293,7 @@
 
       <!-- 02: Help Me Open Doors -->
       <div class="step-card">
-        <div class="step-header" onclick="openStep(this.parentElement, 'collab-steps')">
+        <div class="step-header">
           <div class="step-header-left">
             <span class="step-number">02</span>
             <span class="step-name">Help Me Open Doors</span>
@@ -1321,7 +1317,7 @@
 
       <!-- 03: Research and Design in Code -->
       <div class="step-card">
-        <div class="step-header" onclick="openStep(this.parentElement, 'collab-steps')">
+        <div class="step-header">
           <div class="step-header-left">
             <span class="step-number">03</span>
             <span class="step-name">Research and Design in Code</span>
@@ -1366,8 +1362,8 @@
     </div>
 
     <!-- Wide photo -->
-    <div style="background:var(--surface-highest);height:480px;width:100%;display:flex;align-items:center;justify-content:center;">
-      <span style="font-family:'Manrope',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--outline);">Photo</span>
+    <div style="height:640px;width:100%;overflow:hidden;border-radius:6px;">
+      <img src="photos/IMG_3135.jpg" alt="Q&A photo" style="width:100%;height:100%;object-fit:cover;">
     </div>
 
   </div>
@@ -1411,6 +1407,14 @@ function closeStep(e) {
   var card = e.target.closest('.step-card');
   if (card) card.classList.remove('open');
 }
+
+document.querySelectorAll('.step-card').forEach(function(card) {
+  card.addEventListener('click', function() {
+    if (card.classList.contains('open')) return;
+    var container = card.closest('.process-steps');
+    openStep(card, container && container.id ? container.id : null);
+  });
+});
 
 
 function switchPage(pageName) {
